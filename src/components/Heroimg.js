@@ -8,6 +8,9 @@ import backgroundVideo from "../assets/web.gif"
 import TextSpan from "./TextSpan";
 const Heroimg = () => {
   //
+  const scroll=()=>{
+    window.scrollTo(0,0);
+   }
   const $name="Hi,I'M Haneef".split("");
   const $work="React Developer.".split("");
   return (
@@ -28,7 +31,7 @@ const Heroimg = () => {
           return <TextSpan key={index}>{letter===" "?"\u00a0":letter}</TextSpan>
         })}</h1>
         <div>
-          <Link to="/project" className="btn">
+          <Link to="/project" className="btn" onClick={scroll}>
             Projects
           </Link>
           <a href="Haneef resume 2023.pdf" download="Haneef resume 2023.pdf" className="btn btn-light">

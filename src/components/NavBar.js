@@ -25,12 +25,20 @@ const NavBar = () => {
     
   const [hamCLick, setHamClick] = useState(false);
   const [color, setColor] = useState(false);
-  const handleHamCLick = (e) => {
-    setHamClick(!hamCLick);
-    //
-  };
+  const openMenu=()=>{
+setHamClick(true)
+if (typeof window != 'undefined' && window.document) {
+  document.body.style.overflow = 'hidden';
+}
+  }
+  const closeMenu=()=>{
+setHamClick(false)
+document.body.style.overflow = 'unset'
+  }
+
   const scroll=()=>{
     window.scrollTo(0,0);
+    document.body.style.overflow = 'unset'
    }
   const changeColor = () => {
     //
@@ -55,11 +63,11 @@ const NavBar = () => {
             <h1>Home</h1>
           </Link>
         </li>
-        {/* <li>
+        <li>
           <Link to="/project" onClick={scroll}>
             <h1>Project</h1>
           </Link>
-        </li> */}
+        </li>
         <li>
           <Link to="/about" onClick={scroll}>
             <h1>About</h1>
@@ -72,14 +80,15 @@ const NavBar = () => {
         </li>
         
       </m.ul>
-      <div className="hamburger" onClick={handleHamCLick}>
+      <div className="hamburger" >
+        {/* onClick={handleHamCLick} */}
         {hamCLick ? (
-          <FaTimes size={20} style={{ color: "#fff" }} />
+          <FaTimes size={20} style={{ color: "#fff" }} onClick={closeMenu} />
         ) : (
-          <FaBars size={20} style={{ color: "#fff" }} />
+          <FaBars size={20} style={{ color: "#fff" }} onClick={openMenu} />
         )}
-        {/* <FaTimes onClick={handleHamCLick} size={20} style={{ color: "#fff" }} />
-        <FaBars onClick={handleHamCLick} size={20} style={{ color: "#fff" }} /> */}
+        {/* <FaTimes onClick={handleHamCLick} size={20} style={{ color: "#fff" }} /> */}
+        {/* <FaBars onClick={handleHamCLick} size={20} style={{ color: "#fff" }} /> */}
       </div>
       </>}
      

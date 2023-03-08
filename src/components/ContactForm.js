@@ -7,7 +7,11 @@ const ContactForm = (props) => {
   const [openModal,setOpenModal]=useState(false)
 const handleModal=()=>{
   setOpenModal(true)
+  if (typeof window != 'undefined' && window.document) {
+    document.body.style.overflow = 'hidden';
 }
+}
+
  const form = useRef();
   const sendEmail=(e)=>{
     
@@ -27,14 +31,14 @@ e.target.reset();
       {openModal && <Modal setCloseModal={setOpenModal}/>}
       <form onSubmit={sendEmail} ref={form}>
         <label>Your Name</label>
-        <input type="text" required name="user_name"></input>
+        <input type="text" required name="user_name" disabled={openModal===true &&true}></input>
         <label>Email</label>
-        <input type="email" required name="user_email"></input>
+        <input type="email" required name="user_email" disabled={openModal===true &&true}></input>
         <label>Subject</label>
-        <input type="text" required name="subject"></input>
+        <input type="text" required name="subject" disabled={openModal===true &&true}></input>
         <label>Message</label>
-        <textarea rows="3" placeholder="Type your message here" required name="message"/>
-        <motion.button whileHover={{scale:1.1}} whileTap={{scale:0.9}} className="btn-contact" type="submit">Submit</motion.button>
+        <textarea rows="3" placeholder="Type your message here" required name="message" disabled={openModal===true &&true}/>
+        <motion.button whileHover={{scale:1.1}} whileTap={{scale:0.9}} className="btn-contact" type="submit" disabled={openModal===true &&true}>Submit</motion.button>
       </form>
     </div>
   );

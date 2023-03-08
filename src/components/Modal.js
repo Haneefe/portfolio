@@ -27,13 +27,15 @@ const Modal = ({setCloseModal}) => {
  
     const closeHandler=()=>{
        setCloseModal(false)
+       document.body.style.overflow = 'unset'
+      
     }
 //  if(!open)return null   
 
   return ReactDOM.createPortal(
     <AnimatePresence initial={true}  wait={true} onExitComplete={()=>null}>
     <motion.div className='modalBackdrop' 
-    onClick={closeHandler} 
+    // onClick={closeHandler} 
     initial={{opacity:0}}
     animate={{opacity:1}}
     exit={{opacity:0}}
