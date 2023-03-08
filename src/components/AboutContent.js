@@ -15,13 +15,20 @@ const AboutContent = () => {
       <div className="left">
         <h1>Who Am I?</h1>
        <div className="pcontainer">
-        <p className="line__1">Hello, I'm Haneef, a passionate React</p>
+        {/* <p className="line__1">Hello, I'm Haneef, a passionate React</p>
         <p className="line__2">developer with 2 years of experience in </p>
         <p className="line__3">building web and mobile react apps.</p>
         <p className="line__4">I have a strong foundation in JavaScript</p>
         <p className="line__5">I'm constantly learning and exploring</p>
        <p className="line__6">new technologies to stay up-to-date with</p>
-       <p className="line__7">the latest developments in the field.</p>
+       <p className="line__7">the latest developments in the field.</p> */}
+        <p className="line__1">Hello, I'm Haneef, a passionate React developer</p>
+        <p className="line__2">with 2 years of experience in building</p>
+        <p className="line__3">web and mobile react applications.</p>
+        <p className="line__4">I have a strong foundation in JavaScript</p>
+        <p className="line__5">I'm constantly learning and exploring</p>
+       <p className="line__6">new technologies to stay up-to-date</p>
+       <p className="line__7">with the latest developments in the field.</p>
        </div>
        <Link to="/contact">
           <button className="btn">CONTACT</button>
