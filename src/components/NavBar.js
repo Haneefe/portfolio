@@ -4,6 +4,13 @@ import "./NavBar.css";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { motion as m} from "framer-motion";
 import GlobalSpinner from "./GlobalSpinner";
+// function disableScroll() {
+//   document.body.classList.add("stop-scrolling");
+// }
+
+// function enableScroll() {
+//   document.body.classList.remove("stop-scrolling");
+// }
 function disableScroll() {
   document.body.classList.add("stop-scrolling");
 }
@@ -11,7 +18,6 @@ function disableScroll() {
 function enableScroll() {
   document.body.classList.remove("stop-scrolling");
 }
-
 const NavBar = () => {
   const [loading,setIsLoading]=useState(false)
     useEffect(()=>{
@@ -27,18 +33,22 @@ const NavBar = () => {
   const [color, setColor] = useState(false);
   const openMenu=()=>{
 setHamClick(true)
-if (typeof window != 'undefined' && window.document) {
-  document.body.style.overflow = 'hidden';
-}
+disableScroll()
+// if (typeof window != 'undefined' && window.document) {
+//   document.body.style.overflow = 'hidden';
+// }
   }
   const closeMenu=()=>{
 setHamClick(false)
-document.body.style.overflow = 'unset'
+// document.body.style.overflow = 'unset'
+enableScroll()
   }
+
+  
 
   const scroll=()=>{
     window.scrollTo(0,0);
-    document.body.style.overflow = 'unset'
+    
    }
   const changeColor = () => {
     //
